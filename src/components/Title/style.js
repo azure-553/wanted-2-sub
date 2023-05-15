@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { textStyle } from "styles/utils/testStyle";
+import { textStyle } from "styles/utils/textStyle";
 
 export const Title = styled.h1`
   ${({ marginBottom }) => `margin-bottom: ${marginBottom}`};

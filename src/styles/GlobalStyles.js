@@ -1,11 +1,11 @@
 import { createGlobalStyle } from "styled-components";
+import { reset } from "styled-reset";
 import { colors } from "./constants/color";
-import reset from "styled-reset";
 
 export const GlobalStyle = createGlobalStyle`
-    ${reset}
+  ${reset}
 
-    * {
+  * {
     margin: 0;
     -moz-osx-font-smoothing: grayscale;
     -webkit-font-smoothing: antialiased;

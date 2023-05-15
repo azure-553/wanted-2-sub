@@ -1,13 +1,15 @@
-const App = () => {
+// import { SearchBar } from "components/SearchBar";
+import { Title } from "components/Title";
+import { AppLayout } from "components/layouts/AppLayout";
 
-  // todo : 기업 정보가 노출되면 안됩니다 .env를 사용해서 url을 써주세요.
-  const type = 'submit';
+export const App = () => {
   return (
-    <div>
-      <header>init project</header>
-      <button type={type}>123</button>
-    </div>
+    <AppLayout>
+      <Title marginBottom="20px">
+        {`국내 모든 임상시험 검색하고 \n 온라인으로 참여하기`}
+      </Title>
+
+      {/* <SearchBar /> */}
+    </AppLayout>
   );
 };
-
-export default App;
