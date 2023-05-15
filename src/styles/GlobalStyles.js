@@ -18,6 +18,10 @@ export const GlobalStyle = createGlobalStyle`
     background-color: ${colors.blueLight};
   }
 
+  body {
+    font-family: 'Roboto', sans-serif;
+  }
+
   h1 {
     margin: 0;
   }
