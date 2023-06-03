@@ -16,4 +16,6 @@ export const useDebounce = (callback, delay) => {
       clearTimeout(debounceHandler);
     };
   }, [debouncedCallback, delay]);
+
+  return debouncedCallback;
 };

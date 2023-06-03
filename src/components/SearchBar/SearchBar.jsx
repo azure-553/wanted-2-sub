@@ -42,14 +42,14 @@ export const SearchBar = () => {
           onChange={onChangeInput}
         />
         <_.Button>검색</_.Button>
-        <Recommendation
-          isActive={isVisible}
-          onClick={handleSearch}
-          focusIndex={focusIndex}
-          recommendations={recommendations}
-          setFocusIndex={setFocusIndex}
-        />
       </_.SearchBar>
+      <Recommendation
+        isActive={isVisible}
+        onClick={handleSearch}
+        focusIndex={focusIndex}
+        recommendations={recommendations}
+        setFocusIndex={setFocusIndex}
+      />
     </form>
   );
 };
