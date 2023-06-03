@@ -1,46 +1,46 @@
-import { searchConditionsApi } from "api/searchConditions";
 import { useCallback, useState } from "react";
+import { searchConditionsApi } from "api/searchConditions";
+import { useDebounce } from "../../hooks/useDebounce";
 import {
   RECOMMENDATION_DELAY,
   searchEnterKeyCode,
   searchLength,
 } from "./SearchBar.constant";
-import { useDebounce } from "hooks/useDebounce";
 
 export const useDebounceRecommend = (keyword) => {
-  const [recomendations, setRecomendations] = useState([]);
+  const [recommendations, setRecommendations] = useState([]);
 
-  const fetchRecomendations = useCallback(async () => {
+  const fetchRecommendations = useCallback(async () => {
     const recommendationList = await searchConditionsApi.getCondition(keyword);
 
     if (!recommendationList) {
-      setRecomendations([]);
+      setRecommendations([]);
       return;
     }
 
     const data = recommendationList.slice(0, searchLength.LIST_MAX);
-    if (Array.isArray(data)) setRecomendations(data);
-    else setRecomendations([]);
+    if (Array.isArray(data)) setRecommendations(data);
+    else setRecommendations([]);
   }, [keyword]);
 
-  useDebounce(fetchRecomendations, RECOMMENDATION_DELAY);
+  useDebounce(fetchRecommendations, RECOMMENDATION_DELAY);
 
-  return { recomendations };
+  return { recommendations };
 };
 
-export const useKeyPress = (recomendations, setKeyword) => {
+export const useKeyPress = (recommendations, setKeyword) => {
   const [focusIndex, setFocusIndex] = useState(0);
 
   const recomendLen =
-    recomendations.length + 1 <= searchLength.INDEX_MAX
-      ? recomendations.length + 1
+    recommendations.length + 1 <= searchLength.INDEX_MAX
+      ? recommendations.length + 1
       : searchLength.INDEX_MAX;
 
   const onKeyDownHandler = (e) => {
     switch (e.keyCode) {
       case searchEnterKeyCode.ENTER:
-        if (!recomendations[focusIndex - 1]) return;
-        setKeyword(recomendations[focusIndex - (1 % recomendLen)].name);
+        if (!recommendations[focusIndex - 1]) return;
+        setKeyword(recommendations[focusIndex - (1 % recomendLen)].name);
         setFocusIndex(0);
         break;
       case searchEnterKeyCode.ARROW_DOWN:

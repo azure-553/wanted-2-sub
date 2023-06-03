@@ -2,7 +2,7 @@ import { AiOutlineSearch } from "react-icons/ai";
 import styled from "styled-components";
 import { colors } from "styles/constants/color";
 import { flex, position, textStyle } from "styles/utils";
-import { searchBarSizes } from "./SearchBar.constants";
+import { searchBarSizes } from "./SearchBar.constant";
 
 export const SearchBar = styled.div`
   ${flex()}
